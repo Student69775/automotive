@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+
+
+    <style media="screen">
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+}
+
+.box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background:#4f3b78;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.box input[type="text"],
+.box input[type="password"], 
+.box input[type="file"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #E67E22; /* Orange border */
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: #ECF0F1; /* Light grey text */
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.box h1 {
+    color: #ECF0F1; /* Light grey text */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus,
+.box input[type="file"]:focus {
+    width: 300px;
+    border-color: #9B59B6; /* Purple border when focused */
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #9B59B6; /* Purple border for submit */
+    padding: 14px 40px;
+    outline: none;
+    color: #ECF0F1; /* Light grey text */
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.box input[type="submit"]:hover {
+    background: #9B59B6; /* Purple background on hover */
+}
+
+.forgot {
+    color: #E67E22; /* Orange color for "forgot" text */
+    text-decoration: underline;
+}
+
+
+    </style>
+  </head>
+  <body>
+    {% include "vehicle/navbar.html" %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form class="box" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    <h1>CUSTOMER SIGNUP</h1>
+                    <p class="text-muted"> Please enter your details to create account !</p>
+                      {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+                        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+                          {% render_field userForm.username class="form-control" placeholder="Username" %}
+                            {% render_field userForm.password class="form-control" placeholder="Password" %}
+                              {% render_field customerForm.address class="form-control" placeholder="Address" %}
+                                {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
+                                  {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
+
+                     <input type="submit" name="" value="Create">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+
+  </body>
+</html>

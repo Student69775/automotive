@@ -1,0 +1,58 @@
+{% extends 'vehicle/adminbase.html' %}
+{% block content %}
+
+	<!-- main content -->
+	<div class="wrapper">
+
+<!-- ****** table  start ********** -->
+		<div class="row">
+			<div class="col-12 col-m-12 col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 style="color:red; text-align:center" >Enquiry Made By Customer
+						</h3>
+
+					</div>
+					<div class="card-content">
+						<table>
+							<thead>
+                <tr>
+                  <th>Customer Name</th>
+
+                  <th>Vehicle Name</th>
+                  <th>Category</th>
+
+                  <th>Problem Description</th>
+                  <th>Status</th>
+                  <th>Change Status</th>
+                  <th>Delete</th>
+                </tr>
+							</thead>
+							<tbody>
+                {% for c,r in data %}
+                <tr>
+
+                  <td> {{c.get_name}}</td>
+
+
+                  <td> {{r.vehicle_name}}</td>
+                  <td>{{r.category}}</td>
+                  <td>{{r.problem_description}}</td>
+                  <td>{{r.status}}</td>
+
+                  <td><a  style="text-decoration: none; font-size: 25px; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; border: none; display: inline-block; text-align: center;" href="{% url 'change-status' r.id  %}">Change Status</a></td>
+                  <td><a style="text-decoration: none; font-size: 25px; background-color: #f44336; color: white; padding: 10px 20px; border-radius: 5px; border: none; display: inline-block; text-align: center;"href="{% url 'admin-delete-request' r.id  %}">Delete</a></td>
+                </tr>
+                {% endfor %}
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- ****** table start ********** -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	</div>
+	<!-- end main content -->
+{% endblock content %}
